@@ -94,9 +94,6 @@ namespace FileTransfer_Server
                             DialogSave.Title = "Onde deseja salvar o arquivo?";
                             DialogSave.InitialDirectory = @"C:/";
 
-                            //if (DialogSave.ShowDialog() == DialogResult.OK)
-                            //    SaveFileName = DialogSave.FileName;
-
                             Action ac = () => { lock (sync_temp) { DialogSave.ShowDialog(); } };
                             Invoke(ac);
 
@@ -115,7 +112,6 @@ namespace FileTransfer_Server
                                     totalrecbytes += RecBytes;
                                 }
                                 Fs.Close();
-                                //listbox_Connections.Items.Add("Recebido: " + SaveFileName.ToString());
                             }
                            
                             netstream.Close();
